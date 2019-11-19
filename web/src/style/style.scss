@@ -1,0 +1,310 @@
+*{
+    box-sizing: border-box;
+    outline: none;
+}
+html{
+
+    font-size: 17.5px;
+  
+    background: #fdfdfd;
+}
+body{
+       min-width: 100%;
+    
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.2em;
+}
+a{
+    text-decoration: none
+}
+li{
+    list-style: none;
+}
+.h-100{
+    height: 100%;
+}
+.w-100{
+    width: 100%;
+}
+// flex布局
+.flex{
+    display: flex;
+}
+$xjc:(
+    start:flex-start,
+    center:center,
+    sa:space-around,
+    sb:space-between,
+    end:flex-end
+);
+@each $key,$val in $xjc {
+    .jc-#{$key}{
+        justify-content: $val;
+    }  
+}
+$yai:(
+    start:flex-start,
+    center:center,
+    end:flex-end,
+);
+@each $key,$val in $yai {
+    .ai-#{$key}{
+        align-items: $val;
+    }
+}
+.wrap{
+    flex-wrap: wrap;
+}
+.d-flex{
+    flex: 1;
+}
+.column{
+    flex-direction: column;
+}
+//设置内/外边距 字体排列方式
+$spacing-types: (
+  m: margin, 
+  p: padding 
+);
+$spacing-directions: (
+  t: top,
+  r: right,
+  l: left,
+  b: bottom
+);
+//设置标准为1rem
+$spacing-base-size: 1rem;
+//通过rem设置5个类型大小
+$spacing-size: (
+  0: 0, 
+  1: 0.25,
+  2: 0.5,
+  3: 1,
+  4: 1.5,
+  5: 3
+);
+@each $typekey, $typeval in $spacing-types {
+  //.m-1
+  @each $sizekey, $sizeval in $spacing-size {
+    .#{$typekey}-#{$sizekey} {
+      #{$typeval}: $sizeval * $spacing-base-size;
+    }
+  }
+};
+@each $typekey, $typeval in $spacing-types {
+  //.m-1
+  @each $sizekey, $sizeval in $spacing-size {
+    .#{$typekey}x-#{$sizekey} {
+      #{$typeval}-left: $sizeval * $spacing-base-size;
+      #{$typeval}-right: $sizeval * $spacing-base-size;
+    }
+  }
+};
+@each $typekey, $typeval in $spacing-types {
+  //.m-1
+  @each $sizekey, $sizeval in $spacing-size {
+    .#{$typekey}y-#{$sizekey} {
+      #{$typeval}-top: $sizeval * $spacing-base-size;
+      #{$typeval}-bottom: $sizeval * $spacing-base-size;
+    }
+  }
+}
+@each $typekey, $typeval in $spacing-types {
+  //.m-1
+  //.mt-1
+  @each $dirkey, $dirval in $spacing-directions {
+    @each $sizekey, $sizeval in $spacing-size {
+      .#{$typekey}#{$dirkey}-#{$sizekey} {
+        #{$typeval}-#{$dirval}: $sizeval * $spacing-base-size;
+      }
+    }
+  }
+};
+//字体
+@each $item in (center, left, right) {
+  .text-#{$item} {
+    text-align: $item;
+  }
+};
+$textsize:(
+    1:0.6,
+    2:0.8,
+    3:1,
+    4:1.2,
+    5:1.6,
+    6:2
+);
+@each $key,$val in $textsize{
+    .size-#{$key}{
+              font-size: $val*$spacing-base-size;
+    }
+}
+$color:(
+    yellow:#ffd84d,
+    white:#ffffff,
+    black:#222,
+    hui:#e6e6e6,
+    hui2:#6C6C6C,
+    hui3:#404040,
+    black1:#282828,
+    black2:#090909,
+    red:#ed2945,
+    origin:#ec7259,
+    black3:#151515
+);
+@each $key,$val in $color{
+    .bg-#{$key}{
+        background: $val;
+    };
+    .color-#{$key}{
+        color: $val;
+    }
+}
+.weight{
+    font-weight: bold;
+}
+@media screen and (max-width: 850px) {
+.headertitle{
+  display: none;
+}
+.mymenu{
+  display: none;
+}
+.small{
+  display:block;
+  transition: all ease .5s;
+}
+.smallmenu{
+  display:block;
+  z-index: 10000;
+}
+.num{
+  display: none;
+}
+.tabbar{
+  display: block;
+  position: fixed;
+  bottom: 0;
+  z-index: 1699;
+}
+.myicon{
+  display: none;
+}
+ } 
+ .index{
+  width: 100%;
+  margin: auto;
+}
+.middle {
+  width: 90%;
+  margin: 30px auto;
+}
+ @media screen and (min-width: 850px){
+  .middle {
+    width: 70%;
+    margin: 30px auto;
+  }
+   .index {
+  margin: auto;
+  width: 78%;
+}
+  .small{
+    display: none ;
+    transition: all ease .5s;
+  }
+  .smallmenu{
+    display:none;
+  }
+  .tabbar{
+    display: none;
+  }
+  .mymenu{
+    top: 73.5px;
+    
+    left: 0;
+    position: sticky !important;
+     z-index: 10000;
+  }
+  .num{
+    
+    top: 73.5px;
+    right: 0;
+    position: sticky !important;
+  }
+ }
+ .slide-fade-enter-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.gudu {
+  border: 1px solid #e6e6e6;
+  width: 90%;
+  margin: 20px auto;
+}
+.slide1-fade-enter-active {
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide1-fade-leave-active {
+  transition: all 0.1s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide1-fade-enter, .slide1-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateY(30px);
+  opacity: 0;
+}
+.top {
+  transform: rotate(-90deg);
+}
+.bottom {
+  transform: rotate(0deg);
+}
+.pending{
+  width: 70px;
+  height: 70px;
+  background: #fdfdfd;
+  border-radius: 50%;
+  border: 3px solid #fdfdfd;
+  border-top: 3px solid #222222;
+  border-left: 3px solid #222222;
+  animation: spin 0.5s linear infinite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+ 
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.v-note-wrapper{
+  min-width:200px;
+}

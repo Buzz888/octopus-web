@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "431779",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "e709",
+      "unicode_decimal": 59145
+    },
+    {
+      "icon_id": "773947",
+      "name": "note",
+      "font_class": "note",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "2407260",
+      "name": "搜索",
+      "font_class": "tubiao-",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "4503681",
+      "name": "left",
+      "font_class": "left",
+      "unicode": "e6cb",
+      "unicode_decimal": 59083
+    },
+    {
+      "icon_id": "5218741",
+      "name": "鲜鱿鱼",
+      "font_class": "xianyouyu",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    }
+  ]
+}
