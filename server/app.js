@@ -1,0 +1,11 @@
+const express = require('express')
+const app = express()
+app.use(require('cors')())
+app.use(express.json())
+require('./mongose/db')(app)
+require('./router/admin/admin')(app)
+require('./router/web/index')(app)
+require('./router/admin/menu')(app)
+app.listen('3000',(req,res)=>{
+    console.log('ok 3000')
+})
