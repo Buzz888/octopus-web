@@ -9,12 +9,16 @@ import menu from './components/menu.vue'
 import smallmenu from './components/smallmenu.vue'
 import number from './components/number.vue'
 import tabbar from './components/tabbar.vue'
+import skeleton from './components/skeleton-pc'
+import pending from './components/pending.vue'
 import http from './http'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 Vue.use(mavonEditor)
 Vue.config.productionTip = false
 Vue.prototype.$http = http
+Vue.component('pending', pending)
+Vue.component('skeleton', skeleton)
 Vue.component('mymenu', menu)
 Vue.component('smallmenu', smallmenu)
 Vue.component('number', number)

@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <transition name="slide-fade" mode="out-in">
+    <skeleton v-show="this.$store.state.flag2"></skeleton>
+    </transition>
     <div class="flex jc-sb">
       <transition name="slide-fade">
         <mymenu v-show="this.$store.state.flag" class="mymenu" :list="list"></mymenu>
@@ -23,12 +26,29 @@ export default {
   },
   methods: {
     async fetch() {
-      const res = await this.$http.get("/menulist");
-      this.list = res.data;
+      const res = await this.$http.get("/menulist"); 
+      setTimeout(()=>{this.$store.commit('flag2')},0)
+      let list = res.data[0];
+      let list1 = res.data[1];
+      list.forEach(i => this.list.push({ title: i.name, _id: i._id }))
+      this.list.forEach((item,index)=>{
+        this.list[index].item=[]
+        list1.forEach((item1)=>{
+          if(item._id==item1.fatherid){
+           this.list[index].item.push({ name: item1.title, router: item1._id })}
+        })
+      })
+      
+      
     }
   },
+  beforeDestroy(){
+  this.$store.commit('flag3')
+  },
   created() {
+
     this.fetch();
+   
   },
   watch: {
     $route(to, from) {

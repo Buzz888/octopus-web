@@ -12,7 +12,7 @@
       <div class="flex ai-center size-2 jc-sa weight color-hui3">
         <div>{{item.desc.slice(0,10)}}</div>
         <div>{{item.title}}</div>
-        <router-link class="btn bg-red color-white" tag="button" :to='`/notelist/${item._id}`'>查看内容</router-link>
+        <router-link class="btn bg-red" tag="button" :to='`/notelist/${item._id}`'>查看内容</router-link>
       </div>
       <div class="gudu"></div>
     </div>
@@ -44,5 +44,6 @@ export default {
   height: 30px;
   border-radius: 15px;
   cursor: pointer;
+  color:white;
 }
 </style>

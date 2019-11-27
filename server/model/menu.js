@@ -5,5 +5,6 @@ const schema = new mongoose.Schema({
     listname: {type:String},
     index: {type:String},
     
+    
 })
 module.exports=mongoose.model('menu',schema)

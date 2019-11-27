@@ -3,7 +3,7 @@
       <h1>{{list.title}}</h1>
       <div class="gudu"></div>
       <h3>{{list.desc}}</h3>
-      <mavon-editor :subfield="false" defaultOpen="preview"  :toolbarsFlag="false"  :editable="false" v-model="list.contents"/>
+      <mavon-editor  :subfield="false" defaultOpen="preview"  :toolbarsFlag="false"  :editable="false" v-model="list.contents"/>
   </div>
 </template>
 <script>

@@ -2,9 +2,9 @@
   <div class=" number flex column px-2 jc-center ai-center">
      
     <div class="round my-2"><i class="h-100 pendingicon ai-center flex jc-center tip iconfont icon-liulanliang"></i></div>
-    <div class="size-1  color-hui3">{{num}}</div>
+    <div class="size-1  color-hui3"></div>
     <div class="round my-2"><i class="h-100 ai-center flex jc-center tip iconfont icon-dianzanshu"></i></div>
-    <div class="size-1  color-hui3" >70W</div>
+    <div class="size-1  color-hui3" ></div>
     <div @click="black" class="round my-2"><i class="h-100 ai-center flex jc-center tip iconfont icon-huidaodingbu
 "></i></div>
     <div class="size-1  color-hui3">Back</div>
@@ -20,6 +20,7 @@ export default {
     },
     methods:{
         black(e){
+          window.console.log(e)
          if (e.pageY > 800) {
         let top = document.documentElement.scrollTop || document.body.scrollTop;
         // 实现滚动效果
@@ -32,11 +33,7 @@ export default {
       }
         }
     },
-    created(){
-      setInterval(() => {
-        this.num+=1
-      }, 500);
-    }
+   
 }
 </script>
 <style scoped>
@@ -44,7 +41,7 @@ export default {
     width: 40px;
     height: 40px;
     background: #222;
-    border-radius:50%; 
+    border-radius:50%;
 }
 .number{
 background: #f5f5f5;

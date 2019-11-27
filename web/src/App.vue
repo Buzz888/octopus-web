@@ -20,13 +20,15 @@
           tag="li"
         >{{item.name}}</router-link>
       </ul>
-      <i class="iconfont icon-github ml-5 my-3"></i>
+      <a href="https://github.com/Buzz888"><i class="iconfont icon-github ml-5 my-3"></i></a>
     </div>
     <div></div>
     <div id="nav"></div>
+    
     <transition name="slide-fade" mode="out-in">
       <router-view></router-view>
     </transition>
+    
     <tabbar :top="top" class="tabbar"></tabbar>
   </div>
 </template>
@@ -41,9 +43,11 @@ export default {
         { name: "DAILY NOTE", router: "/daynote" },
         { name: "ALGORITHM", router: "/call" }
       ],
+      myflag:true,
       flag: 0,
-      flag3:false,
+      flag3:true
     };
+    
   },
   watch: {
     $route() {

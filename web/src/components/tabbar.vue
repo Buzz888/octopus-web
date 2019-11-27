@@ -60,10 +60,10 @@ export default {
 </script>
 <style scoped>
 .iconfont {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 .bigicon {
-  font-size: 1.7rem;
+  font-size: 2rem;
 }
 .tabbar {
   height: 2.5rem;
@@ -75,7 +75,7 @@ rota {
   bottom: 2.5rem;
   position: fixed;
   width: 100%;
-  height: 85%;
+  height: 100%;
 }
 .mytop {
   transform: rotate(-180deg);

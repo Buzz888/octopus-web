@@ -4,7 +4,7 @@
 }
 html{
 
-    font-size: 17.5px;
+    
   
     background: #fdfdfd;
 }
@@ -16,7 +16,8 @@ body{
     line-height: 1.2em;
 }
 a{
-    text-decoration: none
+    text-decoration: none;
+    color:white;
 }
 li{
     list-style: none;
@@ -123,6 +124,7 @@ $spacing-size: (
 };
 //字体
 @each $item in (center, left, right) {
+ 
   .text-#{$item} {
     text-align: $item;
   }
@@ -165,6 +167,9 @@ $color:(
     font-weight: bold;
 }
 @media screen and (max-width: 850px) {
+  html{
+    font-size: 14px;
+  }
 .headertitle{
   display: none;
 }
@@ -177,7 +182,7 @@ $color:(
 }
 .smallmenu{
   display:block;
-  z-index: 10000;
+  z-index: 9999;
 }
 .num{
   display: none;
@@ -186,7 +191,7 @@ $color:(
   display: block;
   position: fixed;
   bottom: 0;
-  z-index: 1699;
+  z-index: 9999;
 }
 .myicon{
   display: none;
@@ -201,6 +206,9 @@ $color:(
   margin: 30px auto;
 }
  @media screen and (min-width: 850px){
+   html{
+    font-size: 17.5px;
+   }
   .middle {
     width: 70%;
     margin: 30px auto;
@@ -208,6 +216,7 @@ $color:(
    .index {
   margin: auto;
   width: 78%;
+ 
 }
   .small{
     display: none ;
@@ -288,14 +297,20 @@ $color:(
   height: 70px;
   background: #fdfdfd;
   border-radius: 50%;
-  border: 3px solid #fdfdfd;
+  border: 3px solid #ed2945;
   border-top: 3px solid #222222;
   border-left: 3px solid #222222;
   animation: spin 0.5s linear infinite;
-  position: fixed;
-  top: 50%;
-  left: 50%;
+  margin:10% auto;
  
+}
+.zegaiceng{
+  width: 100%;
+  height: 100vh;
+ background:rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  position: fixed;
+  top: 0;
 }
 @keyframes spin {
   from {

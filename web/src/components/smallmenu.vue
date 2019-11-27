@@ -1,16 +1,16 @@
 <template>
 
 <div  class="menu" style="width:100%; height:90vh;" v-bar>
-    <div style="width:100%; height:100%;">
+    <div class="pt-2" style="width:100%; height:100%;">
         <ul v-for="(item,j) in list" :key="j" >
             <li>
                 <div :class="j==cur?'active':''" class="flex ai-center text-center" @click="add(j)">
-                    <div class="title  size-3 ">{{item.title}}</div>
+                    <div class="title  size-4 weight ">{{item.title}}</div>
                     <i :class="j==cur?'up':'down'" class="iconfont ml-4 icon-left"></i>
                 </div>
                 <transition name="slide-fade" mode="out-in">
                    <ul class="item"  v-show="j==cur">
-                       <router-link  tag="li" class="pt-2 color-hui3 size-2 " :class="i==flag?'active':''"  v-for="(item,i) in item.item" :key='i' :to="{path:`/list/${item.router}`,query:{index:i}}" @click="flag=i">{{item.name}}</router-link>               
+                       <router-link  tag="li" class="pt-2 color-hui3 size-3 weight " active-class="active"  v-for="(item,i) in item.item" :key='i' :to="{path:`/list/${item.router}`,query:{index:j}}" @click="flag=i">{{item.name}}</router-link>               
                 </ul>
                 </transition>
             </li>
@@ -51,7 +51,7 @@ color: #ed2945;
 
 .iconfont{
 font-size: 0.8rem; 
-transition: all ease .5s;
+transition: all ease .1s;
 }
 .active{
     color: #ed2945;
@@ -89,10 +89,10 @@ export default {
            this.cur=j        
         },
     },
-    watch: {
-    '$route' (to) {
-     this.flag=to.query.index;
-     
-  }
-}}
+    created(){
+        if(this.$route.query.index){
+      this.j=this.$route.query.index
+      this.cur = this.j}
+    }
+   }
 </script>
